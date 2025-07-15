@@ -9,7 +9,8 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-app.use("/", urlRoutes); // Connect the routes
+app.use("/", urlRoutes);
+app.use("/shorturls", urlRoutes); // for /shorturls/:shortcode stats
 
 app.get("/", (_req, res) => {
   res.send("✅ Affordmed URL Shortener API is running.");
