@@ -38,11 +38,12 @@ const URLInputForm: React.FC = () => {
   const [results, setResults] = useState<Result[]>([]);
   const [snackbar, setSnackbar] = useState("");
 
-  const handleChange = (index: number, field: keyof URLForm, value: string) => {
-    const updated = [...forms];
-    updated[index][field] = value;
-    setForms(updated);
-  };
+const handleChange = (index: number, field: string, value: string) => {
+  const updatedForms = [...forms];
+  updatedForms[index][field as keyof URLForm] = value;
+  setForms(updatedForms);
+};
+
 
   const validate = (): boolean => {
     const allErrors: URLErrors[] = [];
@@ -103,7 +104,8 @@ const URLInputForm: React.FC = () => {
           index={idx}
           data={form}
           errors={errors[idx] || {}}
-          onChange={handleChange}
+          onChange={(index, field, value) => handleChange(index, field, value)}
+
         />
       ))}
 

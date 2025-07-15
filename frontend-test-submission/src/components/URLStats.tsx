@@ -9,6 +9,7 @@ import {
   Grid,
   Divider,
 } from "@mui/material";
+
 import { fetchStats } from "../utils/shorten";
 
 const URLStats: React.FC = () => {

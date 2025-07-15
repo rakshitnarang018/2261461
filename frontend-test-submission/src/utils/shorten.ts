@@ -17,3 +17,8 @@ export const createShortUrl = async (
   const response = await axios.post("http://localhost:8000/shorturls", data);
   return response.data;
 };
+
+export const fetchStats = async (shortcode: string) => {
+  const response = await axios.get(`http://localhost:8000/shorturls/${shortcode}`);
+  return response.data;
+};
